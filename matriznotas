@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    const int linha = 5;
+    const int coluna = 3;
+    int i, j;
+    float notas[linha][coluna], media[linha];
+
+    // Recebe as notas e calcula as médias
+    for (i = 0; i < linha; i++) {
+        float soma = 0;
+
+        for (j = 0; j < coluna; j++) {
+            printf("\nAluno %i - prova %i: ", i + 1, j + 1);
+            scanf("%f", &notas[i][j]);
+
+            soma += notas[i][j];
+        }
+
+        media[i] = soma / coluna;
+    }
+
+    // Mostra as notas
+
+    for (i = 0; i < linha; i++) {
+        for (j = 0; j < coluna; j++) {
+            printf("%.2f ", notas[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Relatório das médias
+
+    for (i = 0; i < linha; i++) {
+        printf("Aluno %d - Media: %.2f\n", i + 1, media[i]);
+    }
+
+    return 0;
+}
